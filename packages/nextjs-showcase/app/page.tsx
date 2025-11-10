@@ -54,6 +54,8 @@ export default function Home() {
 
   const reconnectWallet = async () => {
     try {
+      if (!window.ethereum) return;
+      
       const provider = new BrowserProvider(window.ethereum);
       const accounts = await provider.listAccounts();
       
