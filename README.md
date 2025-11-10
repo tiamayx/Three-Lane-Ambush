@@ -89,8 +89,8 @@ The entire gameplay loop of `Three Lane Ambush` is designed around Zama's FHEVM,
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [Your-Repo-URL]
-    cd three_lane_ambush
+    git clone https://github.com/tiamayx/Three-Lane-Ambush.git
+    cd Three-Lane-Ambush
     ```
 
 2.  **Install Dependencies:**
@@ -108,14 +108,23 @@ The entire gameplay loop of `Three Lane Ambush` is designed around Zama's FHEVM,
 ### Deploying Your Own Version
 
 1.  **Deploy the Smart Contract:**
-    *   Add your `MNEMONIC` and a Sepolia RPC URL (e.g., from Alchemy) to `packages/hardhat/.env`.
+    *   Create a `.env` file in `packages/hardhat/` and add your private key:
+        ```
+        PRIVATE_KEY=your_private_key_here
+        ```
     *   Deploy the contract to Sepolia:
         ```bash
-        pnpm --filter ./packages/hardhat run deploy
+        cd packages/hardhat
+        pnpm exec hardhat deploy --network sepolia
+        ```
+    *   Verify the contract (required for Zama Relayer):
+        ```bash
+        pnpm exec hardhat verify --network sepolia <YOUR_CONTRACT_ADDRESS>
         ```
 
 2.  **Update Frontend Configuration:**
     *   Update the `CONTRACT_ADDRESS` in `packages/nextjs-showcase/app/components/GamePage.tsx` with your newly deployed contract address.
+    *   Also update the contract address in `packages/nextjs-showcase/app/components/HomePage.tsx`.
 
 3.  **Deploy the Frontend:**
     *   The frontend is ready for deployment on platforms like Vercel or Netlify. Connect your GitHub repository for a seamless deployment experience.
