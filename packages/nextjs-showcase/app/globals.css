@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Spear Cursor - 45 degree angle (left tilt, larger and thicker with silver border) */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(-45 20 20)'%3E%3Cpath d='M20 8 L26 16 L24 16 L24 30 L16 30 L16 16 L14 16 Z' fill='%23a16207' stroke='%23c0c0c0' stroke-width='2.5'/%3E%3Cpath d='M20 8 L24 14 L16 14 Z' fill='%23ca8a04' stroke='%23c0c0c0' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 6 6, auto;
+}
+
+a, button, input[type="button"], input[type="submit"], input[type="range"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(-45 20 20)'%3E%3Cpath d='M20 8 L26 16 L24 16 L24 30 L16 30 L16 16 L14 16 Z' fill='%23dc2626' stroke='%23c0c0c0' stroke-width='2.5'/%3E%3Cpath d='M20 8 L24 14 L16 14 Z' fill='%23ef4444' stroke='%23c0c0c0' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 6 6, pointer;
+}
+
+/* Custom Range Slider Styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ca8a04 0%, #a16207 100%);
+  cursor: pointer;
+  border: 3px solid #854d0e;
+  box-shadow: 0 0 0 2px rgba(202, 138, 4, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  margin-top: -8px;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.5), 0 6px 12px rgba(0, 0, 0, 0.6);
+  margin-top: -10px;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.6), 0 2px 4px rgba(0, 0, 0, 0.7);
+  margin-top: -9px;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ca8a04 0%, #a16207 100%);
+  cursor: pointer;
+  border: 3px solid #854d0e;
+  box-shadow: 0 0 0 2px rgba(202, 138, 4, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.5), 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.6), 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Track styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #1e293b 0%, #334155 50%, #1e293b 100%);
+  border: 1px solid #475569;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #1e293b 0%, #334155 50%, #1e293b 100%);
+  border: 1px solid #475569;
+}

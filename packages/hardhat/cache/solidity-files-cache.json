@@ -1,0 +1,546 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/contracts/ThreeLaneAmbushFHE.sol": {
+      "lastModificationDate": 1762630102517,
+      "contentHash": "edcab2ebc8366fd6b8a53b0f57ce20a5",
+      "sourceName": "contracts/ThreeLaneAmbushFHE.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./lib/lib/FHE.sol",
+        "./lib/config/ZamaConfig.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "ThreeLaneAmbushFHE"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/contracts/lib/config/ZamaConfig.sol": {
+      "lastModificationDate": 1762625738968,
+      "contentHash": "18a39bcfe0027283f975050db52d9058",
+      "sourceName": "contracts/lib/config/ZamaConfig.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@zama-fhe/oracle-solidity/address/ZamaOracleAddress.sol",
+        "../lib/FHE.sol",
+        "../lib/Impl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "EthereumConfig",
+        "SepoliaConfig",
+        "ZamaConfig"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/contracts/lib/lib/FHE.sol": {
+      "lastModificationDate": 1762625738968,
+      "contentHash": "4595eb92a31223262d4e29a27c938d97",
+      "sourceName": "contracts/lib/lib/FHE.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Impl.sol",
+        "./FheType.sol",
+        "encrypted-types/EncryptedTypes.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "FHE",
+        "IDecryptionOracle",
+        "IKMSVerifier"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/contracts/lib/lib/Impl.sol": {
+      "lastModificationDate": 1762625738969,
+      "contentHash": "82d95a375319ded89a84a9323575b351",
+      "sourceName": "contracts/lib/lib/Impl.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FheType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IACL",
+        "IFHEVMExecutor",
+        "IInputVerifier",
+        "Impl"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/node_modules/.pnpm/@zama-fhe+oracle-solidity@0.1.0_@openzeppelin+contracts@5.4.0/node_modules/@zama-fhe/oracle-solidity/address/ZamaOracleAddress.sol": {
+      "lastModificationDate": 1762618838491,
+      "contentHash": "7d4cce05c3d5e3799454d5a9fba75048",
+      "sourceName": "@zama-fhe/oracle-solidity/address/ZamaOracleAddress.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": []
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/contracts/lib/lib/FheType.sol": {
+      "lastModificationDate": 1762625738969,
+      "contentHash": "65f472a3e319ba73ac6b19a5e8660d15",
+      "sourceName": "contracts/lib/lib/FheType.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": []
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/node_modules/.pnpm/encrypted-types@0.0.4/node_modules/encrypted-types/EncryptedTypes.sol": {
+      "lastModificationDate": 1762618838485,
+      "contentHash": "521a624fad71cd29fc4b7c443b41bb86",
+      "sourceName": "encrypted-types/EncryptedTypes.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": []
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/node_modules/.pnpm/fhevm@0.6.2/node_modules/fhevm/lib/TFHE.sol": {
+      "lastModificationDate": 1762628056219,
+      "contentHash": "5e1b4ee3a4cc167d6f59a3e72db2a7f9",
+      "sourceName": "fhevm/lib/TFHE.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Impl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Common",
+        "TFHE"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/node_modules/.pnpm/fhevm@0.6.2/node_modules/fhevm/lib/Impl.sol": {
+      "lastModificationDate": 1762628056219,
+      "contentHash": "93d7e3908104c93e0038c718f41d7c54",
+      "sourceName": "fhevm/lib/Impl.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TFHE.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IACL",
+        "ITFHEExecutor",
+        "Impl"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/node_modules/.pnpm/fhevm@0.6.2/node_modules/fhevm/config/ZamaFHEVMConfig.sol": {
+      "lastModificationDate": 1762628056219,
+      "contentHash": "2b99c2f099c9ee96f76dec9acff7d320",
+      "sourceName": "fhevm/config/ZamaFHEVMConfig.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../lib/TFHE.sol",
+        "../lib/Impl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "EthereumZamaFHEVMConfig",
+        "SepoliaZamaFHEVMConfig",
+        "ZamaFHEVMConfig"
+      ]
+    },
+    "/Users/mark/Desktop/cursor/three_lane_ambush/packages/hardhat/fhevmTemp/@zama-fhe/oracle-solidity/address/ZamaOracleAddress.sol": {
+      "lastModificationDate": 1762618830530,
+      "contentHash": "7d4cce05c3d5e3799454d5a9fba75048",
+      "sourceName": "@zama-fhe/oracle-solidity/address/ZamaOracleAddress.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "metadata": {
+            "bytecodeHash": "none",
+            "useLiteralContent": true
+          },
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "evmVersion": "cancun",
+          "remappings": [
+            "@fhevm/solidity/=./node_modules/@fhevm/solidity/"
+          ],
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": []
+    }
+  }
+}
