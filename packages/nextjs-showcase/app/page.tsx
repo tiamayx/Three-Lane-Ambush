@@ -78,11 +78,12 @@ export default function Home() {
         setConnectionStatus('success');
         
         localStorage.setItem('walletAccount', userAddress);
-        console.log('✅ Wallet reconnected automatically');
+        console.log('✅ Wallet reconnected and FHEVM initialized');
       }
-    } catch (e) {
-      console.log('ℹ️ Could not reconnect wallet automatically');
-      localStorage.removeItem('walletAccount');
+    } catch (e: any) {
+      console.error('❌ Failed to initialize FHEVM:', e.message || e);
+      // Keep wallet connected but show LINK FAILED
+      setConnectionStatus('error');
     }
   };
 
