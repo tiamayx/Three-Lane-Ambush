@@ -91,14 +91,15 @@ export default function Home() {
     setShowWalletModal(false);
     
     let ethereum: any;
+    const windowEth = window.ethereum as any;
     
     // Detect different wallet providers
     if (provider === 'metamask') {
-      ethereum = window.ethereum?.providers?.find((p: any) => p.isMetaMask) || window.ethereum;
+      ethereum = windowEth?.providers?.find((p: any) => p.isMetaMask) || window.ethereum;
     } else if (provider === 'okx') {
-      ethereum = window.okxwallet || window.ethereum?.providers?.find((p: any) => p.isOkxWallet);
+      ethereum = (window as any).okxwallet || windowEth?.providers?.find((p: any) => p.isOkxWallet);
     } else if (provider === 'coinbase') {
-      ethereum = window.ethereum?.providers?.find((p: any) => p.isCoinbaseWallet);
+      ethereum = windowEth?.providers?.find((p: any) => p.isCoinbaseWallet);
     } else {
       ethereum = window.ethereum;
     }
