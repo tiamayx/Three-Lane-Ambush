@@ -13,9 +13,9 @@ const nextConfig = {
         tls: false,
       };
       
-      // Add global polyfill for client-side only
+      // Add global polyfill for client-side only using DefinePlugin
       config.plugins.push(
-        new (require('webpack').ProvidePlugin)({
+        new (require('webpack').DefinePlugin)({
           'global': 'globalThis',
         })
       );
