@@ -14,11 +14,12 @@ const nextConfig = {
       };
     }
     
-    // Add global and self polyfills for both server and client
+    // Add global, self, and window polyfills for both server and client
     config.plugins.push(
       new (require('webpack').DefinePlugin)({
         'global': 'globalThis',
         'self': isServer ? 'globalThis' : 'self',
+        'window': isServer ? '{}' : 'window',
       })
     );
     
