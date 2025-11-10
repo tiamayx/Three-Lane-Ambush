@@ -321,7 +321,13 @@ export default function GamePage({
         // Don't show error alert for user cancellation
       } else {
         console.error("❌ Engagement failed", e);
-        alert(`Engagement failed: ${e.message || 'See console for details'}`);
+        
+        // Check if it's a Relayer error
+        if (e.message?.includes('Relayer') || e.message?.includes('relayer') || e.message?.includes('Failed to check contract code')) {
+          alert(`⚠️ Zama Relayer Error\n\nThe FHE service is temporarily unavailable. This is likely due to the ongoing Zama Testnet migration (Nov 10-14).\n\nPlease try again later or check the console for details.`);
+        } else {
+          alert(`Engagement failed: ${e.message || 'See console for details'}`);
+        }
       }
     } finally {
       setIsLoading(false);
