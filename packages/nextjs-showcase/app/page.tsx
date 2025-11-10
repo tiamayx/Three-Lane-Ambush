@@ -68,40 +68,21 @@ export default function Home() {
         setAccount(userAddress);
         setSigner(signerInstance);
         
-        // Initialize FHEVM with timeout
-        console.log('🔄 Initializing FHEVM...');
+        await initSDK();
         
-        // Set a timeout for FHEVM initialization (30 seconds)
-        const initTimeout = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('FHEVM initialization timeout')), 30000)
-        );
-        
-        const initFhevm = async () => {
-          await initSDK();
-          const fhevmInstance = await createInstance({
-            ...SepoliaConfig,
-            network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-          });
-          return fhevmInstance;
-        };
-        
-        // Race between initialization and timeout
-        const fhevmInstance = await Promise.race([initFhevm(), initTimeout]);
-        
+        const fhevmInstance = await createInstance({
+          ...SepoliaConfig,
+          network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+        });
         setInstance(fhevmInstance);
         setConnectionStatus('success');
         
         localStorage.setItem('walletAccount', userAddress);
-        console.log('✅ Wallet reconnected and FHEVM initialized');
+        console.log('✅ Wallet reconnected automatically');
       }
-    } catch (e: any) {
-      console.error('❌ Failed to reconnect wallet or initialize FHEVM:', e.message);
-      // Set error status but keep wallet connected
-      if (account) {
-        setConnectionStatus('error');
-      } else {
-        localStorage.removeItem('walletAccount');
-      }
+    } catch (e) {
+      console.log('ℹ️ Could not reconnect wallet automatically');
+      localStorage.removeItem('walletAccount');
     }
   };
 
@@ -141,26 +122,12 @@ export default function Home() {
       setAccount(userAddress);
       setSigner(signerInstance);
       
-      // Initialize FHEVM with timeout
-      console.log('🔄 Initializing FHEVM...');
+      await initSDK();
       
-      // Set a timeout for FHEVM initialization (30 seconds)
-      const initTimeout = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('FHEVM initialization timeout')), 30000)
-      );
-      
-      const initFhevm = async () => {
-        await initSDK();
-        const fhevmInstance = await createInstance({
-          ...SepoliaConfig,
-          network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-        });
-        return fhevmInstance;
-      };
-      
-      // Race between initialization and timeout
-      const fhevmInstance = await Promise.race([initFhevm(), initTimeout]);
-      
+      const fhevmInstance = await createInstance({
+        ...SepoliaConfig,
+        network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+      });
       setInstance(fhevmInstance);
 
       console.log('✅ Wallet connected and FHEVM initialized');
