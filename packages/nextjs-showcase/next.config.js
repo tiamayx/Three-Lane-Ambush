@@ -12,6 +12,13 @@ const nextConfig = {
         net: false,
         tls: false,
       };
+      
+      // Add global polyfill for client-side only
+      config.plugins.push(
+        new (require('webpack').ProvidePlugin)({
+          'global': 'globalThis',
+        })
+      );
     }
     
     // For server-side rendering, provide mock implementations
