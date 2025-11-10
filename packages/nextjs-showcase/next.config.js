@@ -14,14 +14,13 @@ const nextConfig = {
       };
     }
     
-    // Add global, self, and window polyfills for both server and client
-    config.plugins.push(
-      new (require('webpack').DefinePlugin)({
-        'global': 'globalThis',
-        'self': isServer ? 'globalThis' : 'self',
-        'window': isServer ? '{}' : 'window',
-      })
-    );
+    // For server-side rendering, provide mock implementations
+    if (isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@zama-fhe/relayer-sdk/web': false,
+      };
+    }
     
     return config;
   },
