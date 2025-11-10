@@ -206,11 +206,19 @@ export default function GamePage({
   };
 
   const handleEngage = async () => {
-    // Check if wallet is connected and FHEVM is initialized
-    if (!account || !signer || !instance || !contract) {
-      // Silently return - the UI already shows "LINK FAILED" status
+    // Check if wallet is connected
+    if (!account || !signer) {
+      alert("❌ Wallet Not Connected\n\nPlease connect your wallet first.");
       return;
     }
+    
+    // Check if FHEVM is initialized
+    if (!instance || !contract) {
+      alert("❌ FHEVM Initialization Failed\n\nThe FHE service is currently unavailable. Please disconnect and reconnect your wallet, or try again later.");
+      return;
+    }
+    
+    // Check if lane is selected
     if (!lane) {
       alert("Please select an attack vector (lane) first.");
       return;
