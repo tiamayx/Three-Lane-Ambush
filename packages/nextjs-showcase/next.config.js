@@ -3,6 +3,23 @@ const nextConfig = {
   transpilePackages: ['@fhevm-sdk'],
   output: 'export',
   distDir: '.next',
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'Cross-Origin-Embedder-Policy',
+            value: 'require-corp',
+          },
+        ],
+      },
+    ];
+  },
   webpack: (config, { isServer }) => {
     // Add polyfills for browser environment
     if (!isServer) {
