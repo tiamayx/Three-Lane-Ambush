@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['@fhevm-sdk'],
+  output: 'export',
+  distDir: '.next',
   webpack: (config, { isServer }) => {
     // Add polyfills for browser environment
     if (!isServer) {
