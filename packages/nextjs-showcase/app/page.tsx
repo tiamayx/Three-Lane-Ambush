@@ -139,8 +139,8 @@ export default function Home() {
         return;
       }
       
-      console.error("Failed to connect wallet", e);
-      alert("Failed to connect wallet. See console for details.");
+      console.error("❌ Failed to connect wallet or initialize FHEVM:", e);
+      // Set error status - UI will show "LINK FAILED" indicator
       setConnectionStatus('error');
     }
   };

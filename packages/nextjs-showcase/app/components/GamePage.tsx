@@ -206,20 +206,13 @@ export default function GamePage({
   };
 
   const handleEngage = async () => {
-    if (!account || !signer) {
-      alert("Please connect your wallet first.");
-      return;
-    }
-    if (!instance) {
-      alert("FHEVM initialization failed. The Zama Relayer service may be temporarily unavailable. Please try refreshing the page or come back later.");
+    // Check if wallet is connected and FHEVM is initialized
+    if (!account || !signer || !instance || !contract) {
+      // Silently return - the UI already shows "LINK FAILED" status
       return;
     }
     if (!lane) {
       alert("Please select an attack vector (lane) first.");
-      return;
-    }
-    if (!contract) {
-      alert("Smart contract connection failed. Please refresh the page.");
       return;
     }
     setIsLoading(true);
