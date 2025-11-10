@@ -12,14 +12,16 @@ const nextConfig = {
         net: false,
         tls: false,
       };
-      
-      // Add global polyfill for browser
-      config.plugins.push(
-        new (require('webpack').DefinePlugin)({
-          'global': 'globalThis',
-        })
-      );
     }
+    
+    // Add global and self polyfills for both server and client
+    config.plugins.push(
+      new (require('webpack').DefinePlugin)({
+        'global': 'globalThis',
+        'self': isServer ? 'globalThis' : 'self',
+      })
+    );
+    
     return config;
   },
 }
