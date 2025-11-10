@@ -517,6 +517,9 @@ video {
 .bottom-4 {
   bottom: 1rem;
 }
+.bottom-6 {
+  bottom: 1.5rem;
+}
 .left-0 {
   left: 0px;
 }
@@ -534,6 +537,9 @@ video {
 }
 .right-2 {
   right: 0.5rem;
+}
+.right-6 {
+  right: 1.5rem;
 }
 .top-0 {
   top: 0px;
@@ -935,6 +941,10 @@ video {
 .bg-\[\#1A1A1A\] {
   --tw-bg-opacity: 1;
   background-color: rgb(26 26 26 / var(--tw-bg-opacity));
+}
+.bg-\[\#24292e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 41 46 / var(--tw-bg-opacity));
 }
 .bg-\[\#2A2A2A\] {
   --tw-bg-opacity: 1;
@@ -1500,6 +1510,12 @@ input[type="range"]::-moz-range-track {
   border: 1px solid #475569;
 }
 
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:border-\[\#FFEB3B\]:hover {
   --tw-border-opacity: 1;
   border-color: rgb(255 235 59 / var(--tw-border-opacity));
@@ -1513,6 +1529,11 @@ input[type="range"]::-moz-range-track {
 .hover\:border-yellow-600:hover {
   --tw-border-opacity: 1;
   border-color: rgb(202 138 4 / var(--tw-border-opacity));
+}
+
+.hover\:bg-\[\#1a1e22\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 30 34 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-\[\#4B5563\]:hover {

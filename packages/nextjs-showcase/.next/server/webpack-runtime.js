@@ -125,7 +125,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("891d9082a25f4ca1")
+/******/ 		__webpack_require__.h = () => ("4ef35e6c23e5c6f8")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -153,21 +153,6 @@
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/relative url */
-/******/ 	(() => {
-/******/ 		__webpack_require__.U = function RelativeURL(url) {
-/******/ 			var realUrl = new URL(url, "x:/");
-/******/ 			var values = {};
-/******/ 			for (var key in realUrl) values[key] = realUrl[key];
-/******/ 			values.href = url;
-/******/ 			values.pathname = url.replace(/[?#].*/, "");
-/******/ 			values.origin = values.protocol = "";
-/******/ 			values.toString = values.toJSON = () => (url);
-/******/ 			for (var key in values) Object.defineProperty(this, key, { enumerable: true, configurable: true, value: values[key] });
-/******/ 		};
-/******/ 		__webpack_require__.U.prototype = URL.prototype;
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/startup entrypoint */
 /******/ 	(() => {
 /******/ 		__webpack_require__.X = (result, chunkIds, fn) => {
@@ -180,14 +165,9 @@
 /******/ 		}
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__webpack_require__.p = "/_next/";
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/require chunk loading */
 /******/ 	(() => {
-/******/ 		__webpack_require__.b = require("url").pathToFileURL(__filename);
+/******/ 		// no baseURI
 /******/ 		
 /******/ 		// object to store loaded chunks
 /******/ 		// "1" means "loaded", otherwise not loaded yet

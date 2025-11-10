@@ -13,7 +13,7 @@ In the world of on-chain strategy games, a fundamental dilemma exists: how to en
 
 -   **Live Application:** https://three-lane-ambush-nextjs-showcase.vercel.app/
 -   **Demo Video:** `[Link to YouTube/Vimeo Video]`
--   **Smart Contract on Sepolia:** `https://sepolia.etherscan.io/address/0x3A31FecA5759C9e7F819f707FCAF50019084077f`
+-   **Smart Contract on Sepolia:** `https://sepolia.etherscan.io/address/0x0D3b2C7B6B1a06ABbCd657E2B46C92D5634437e4`
 
 ## How to Play
 
