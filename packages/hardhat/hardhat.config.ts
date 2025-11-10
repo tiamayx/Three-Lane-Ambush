@@ -23,6 +23,9 @@ const config = {
       sepolia: ETHERSCAN_API_KEY,
     },
   },
+  sourcify: {
+    enabled: true,
+  },
   gasReporter: {
     currency: "USD",
     enabled: !!process.env.REPORT_GAS,

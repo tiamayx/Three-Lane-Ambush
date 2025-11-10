@@ -11,7 +11,7 @@ In the world of on-chain strategy games, a fundamental dilemma exists: how to en
 
 ## Demo
 
--   **Live Application:** `[Link to Vercel/Netlify Deployment]`
+-   **Live Application:** https://three-lane-ambush-nextjs-showcase.vercel.app/
 -   **Demo Video:** `[Link to YouTube/Vimeo Video]`
 -   **Smart Contract on Sepolia:** `https://sepolia.etherscan.io/address/0x3A31FecA5759C9e7F819f707FCAF50019084077f`
 
