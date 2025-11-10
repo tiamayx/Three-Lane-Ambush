@@ -7,6 +7,9 @@ import HomePage from './components/HomePage';
 import GamePage from './components/GamePage';
 import WalletModal from './components/WalletModal';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<'home' | 'game'>('home');
   const [account, setAccount] = useState<string | null>(null);
