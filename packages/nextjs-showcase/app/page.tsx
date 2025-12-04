@@ -96,24 +96,23 @@ export default function Home() {
     try {
       if (!window.ethereum) return;
       
+      // Request accounts to trigger wallet connection
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
       await ensureSepoliaNetwork(window.ethereum);
       
       const provider = new BrowserProvider(window.ethereum);
-      const accounts = await provider.listAccounts();
+      const signerInstance = await provider.getSigner();
+      const userAddress = await signerInstance.getAddress();
+      setAccount(userAddress);
+      setSigner(signerInstance);
       
-      if (accounts.length > 0) {
-        const signerInstance = await provider.getSigner();
-        const userAddress = await signerInstance.getAddress();
-        setAccount(userAddress);
-        setSigner(signerInstance);
-        
-        const fhevmInstance = await initializeFhevm();
-        setInstance(fhevmInstance);
-        setConnectionStatus('success');
-        localStorage.setItem('walletAccount', userAddress);
-      }
+      const fhevmInstance = await initializeFhevm();
+      setInstance(fhevmInstance);
+      setConnectionStatus('success');
+      localStorage.setItem('walletAccount', userAddress);
     } catch {
       setConnectionStatus('error');
+      localStorage.removeItem('walletAccount');
     }
   };
 
