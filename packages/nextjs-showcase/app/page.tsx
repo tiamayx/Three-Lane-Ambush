@@ -28,6 +28,21 @@ export default function Home() {
     accountRef.current = account;
   }, [account]);
 
+  // Pre-initialize SDK on page load (before wallet connect)
+  useEffect(() => {
+    const preInitSDK = async () => {
+      if (!sdkInitialized.current) {
+        try {
+          await initSDK();
+          sdkInitialized.current = true;
+        } catch (e) {
+          console.error('SDK pre-init failed:', e);
+        }
+      }
+    };
+    preInitSDK();
+  }, []);
+
   // Listen for account changes (runs once)
   useEffect(() => {
     if (typeof window.ethereum !== 'undefined') {
@@ -170,7 +185,7 @@ export default function Home() {
     setInstance(null);
     setSigner(null);
     setConnectionStatus('idle');
-    sdkInitialized.current = false;
+    // Don't reset sdkInitialized - SDK stays loaded
   };
 
   const goToGame = () => {
