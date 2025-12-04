@@ -20,8 +20,15 @@ export default function Home() {
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWalletModal, setShowWalletModal] = useState(false);
   const sdkInitialized = useRef(false);
+  const isConnecting = useRef(false);
+  const accountRef = useRef<string | null>(null);
 
-  // Restore page state and wallet connection on mount
+  // Keep accountRef in sync
+  useEffect(() => {
+    accountRef.current = account;
+  }, [account]);
+
+  // Restore page state and wallet connection on mount (runs once)
   useEffect(() => {
     const savedPage = localStorage.getItem('currentPage') as 'home' | 'game' | null;
     if (savedPage) {
@@ -37,22 +44,18 @@ export default function Home() {
       const handleAccountsChanged = (accounts: string[]) => {
         if (accounts.length === 0) {
           disconnectWallet();
-        } else if (account && accounts[0] !== account) {
+        } else if (accountRef.current && accounts[0] !== accountRef.current) {
           reconnectWallet();
         }
       };
 
-      if (window.ethereum) {
-        window.ethereum.on('accountsChanged', handleAccountsChanged);
-      }
+      window.ethereum.on('accountsChanged', handleAccountsChanged);
 
       return () => {
-        if (window.ethereum) {
-          window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
-        }
+        window.ethereum?.removeListener('accountsChanged', handleAccountsChanged);
       };
     }
-  }, [account]);
+  }, []); // Empty dependency - run once on mount
 
   const ensureSepoliaNetwork = async (ethereum: any) => {
     try {
@@ -93,8 +96,15 @@ export default function Home() {
   };
 
   const reconnectWallet = async () => {
+    // Prevent concurrent calls
+    if (isConnecting.current) return;
+    isConnecting.current = true;
+    
     try {
-      if (!window.ethereum) return;
+      if (!window.ethereum) {
+        isConnecting.current = false;
+        return;
+      }
       
       // Request accounts to trigger wallet connection
       await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -113,6 +123,8 @@ export default function Home() {
     } catch {
       setConnectionStatus('error');
       localStorage.removeItem('walletAccount');
+    } finally {
+      isConnecting.current = false;
     }
   };
 
