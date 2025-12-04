@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserProvider } from 'ethers';
 import { createInstance, SepoliaConfig, initSDK, FhevmInstance } from '@zama-fhe/relayer-sdk/web';
 import HomePage from './components/HomePage';
@@ -27,18 +27,14 @@ export default function Home() {
 
     const savedAccount = localStorage.getItem('walletAccount');
     if (savedAccount && typeof window.ethereum !== 'undefined') {
-      // Attempt to reconnect wallet
       reconnectWallet();
     }
 
-    // Listen for wallet disconnection events
     if (typeof window.ethereum !== 'undefined') {
       const handleAccountsChanged = (accounts: string[]) => {
         if (accounts.length === 0) {
-          // Wallet disconnected
           disconnectWallet();
         } else if (account && accounts[0] !== account) {
-          // Account switched - reconnect with new account
           reconnectWallet();
         }
       };
@@ -70,20 +66,16 @@ export default function Home() {
         
         await initSDK();
         
-const fhevmInstance = await createInstance({
-        ...SepoliaConfig,
-        network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-        relayerUrl: 'https://relayer.testnet.zama.org',
-      });
-      setInstance(fhevmInstance);
-      setConnectionStatus('success');
-      
-      localStorage.setItem('walletAccount', userAddress);
-      console.log('✅ Wallet reconnected and FHEVM initialized');
+        const fhevmInstance = await createInstance({
+          ...SepoliaConfig,
+          network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+          relayerUrl: 'https://relayer.testnet.zama.org',
+        });
+        setInstance(fhevmInstance);
+        setConnectionStatus('success');
+        localStorage.setItem('walletAccount', userAddress);
       }
-    } catch (e: any) {
-      console.error('❌ Failed to initialize FHEVM:', e.message || e);
-      // Keep wallet connected but show LINK FAILED
+    } catch {
       setConnectionStatus('error');
     }
   };
@@ -98,7 +90,6 @@ const fhevmInstance = await createInstance({
     let ethereum: any;
     const windowEth = window.ethereum as any;
     
-    // Detect different wallet providers
     if (provider === 'metamask') {
       ethereum = windowEth?.providers?.find((p: any) => p.isMetaMask) || window.ethereum;
     } else if (provider === 'okx') {
@@ -132,18 +123,13 @@ const fhevmInstance = await createInstance({
         relayerUrl: 'https://relayer.testnet.zama.org',
       });
       setInstance(fhevmInstance);
-
-      console.log('✅ Wallet connected and FHEVM initialized');
       setConnectionStatus('success');
       localStorage.setItem('walletAccount', userAddress);
-    } catch (e: any) {
-      if (e.code === 4001 || e.message?.includes('User rejected')) {
-        console.log('ℹ️ User cancelled wallet connection');
+    } catch (e: unknown) {
+      const err = e as { code?: number; message?: string };
+      if (err.code === 4001 || err.message?.includes('User rejected')) {
         return;
       }
-      
-      console.error("❌ Failed to connect wallet or initialize FHEVM:", e);
-      // Set error status - UI will show "LINK FAILED" indicator
       setConnectionStatus('error');
     }
   };
@@ -154,7 +140,6 @@ const fhevmInstance = await createInstance({
     setSigner(null);
     setConnectionStatus('idle');
     localStorage.removeItem('walletAccount');
-    console.log('🔌 Wallet disconnected');
   };
 
   const goToGame = () => {
