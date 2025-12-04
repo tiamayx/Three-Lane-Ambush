@@ -15,6 +15,10 @@ create-fhevm-nextjs/
 create-fhevm-react/
 create-fhevm-vue/
 
+# Next.js build output
+.next
+out
+
 # misc
 .DS_Store
 .env
@@ -27,3 +31,4 @@ create-fhevm-vue/
 
 # Wallet information (private)
 WALLET_INFO.txt
+note.txt

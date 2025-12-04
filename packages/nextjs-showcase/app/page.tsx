@@ -70,15 +70,16 @@ export default function Home() {
         
         await initSDK();
         
-        const fhevmInstance = await createInstance({
-          ...SepoliaConfig,
-          network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-        });
-        setInstance(fhevmInstance);
-        setConnectionStatus('success');
-        
-        localStorage.setItem('walletAccount', userAddress);
-        console.log('✅ Wallet reconnected and FHEVM initialized');
+const fhevmInstance = await createInstance({
+        ...SepoliaConfig,
+        network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+        relayerUrl: 'https://relayer.testnet.zama.org',
+      });
+      setInstance(fhevmInstance);
+      setConnectionStatus('success');
+      
+      localStorage.setItem('walletAccount', userAddress);
+      console.log('✅ Wallet reconnected and FHEVM initialized');
       }
     } catch (e: any) {
       console.error('❌ Failed to initialize FHEVM:', e.message || e);
@@ -128,6 +129,7 @@ export default function Home() {
       const fhevmInstance = await createInstance({
         ...SepoliaConfig,
         network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+        relayerUrl: 'https://relayer.testnet.zama.org',
       });
       setInstance(fhevmInstance);
 
