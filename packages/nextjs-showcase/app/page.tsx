@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserProvider } from 'ethers';
 import { createInstance, SepoliaConfig, initSDK, FhevmInstance } from '@zama-fhe/relayer-sdk/web';
 import HomePage from './components/HomePage';
@@ -10,6 +10,8 @@ import WalletModal from './components/WalletModal';
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
+const SEPOLIA_CHAIN_ID = '0xaa36a7'; // 11155111
+
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<'home' | 'game'>('home');
   const [account, setAccount] = useState<string | null>(null);
@@ -17,6 +19,7 @@ export default function Home() {
   const [signer, setSigner] = useState<any>(null);
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWalletModal, setShowWalletModal] = useState(false);
+  const sdkInitialized = useRef(false);
 
   // Restore page state and wallet connection on mount
   useEffect(() => {
@@ -51,9 +54,49 @@ export default function Home() {
     }
   }, [account]);
 
+  const ensureSepoliaNetwork = async (ethereum: any) => {
+    try {
+      const chainId = await ethereum.request({ method: 'eth_chainId' });
+      if (chainId !== SEPOLIA_CHAIN_ID) {
+        await ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: SEPOLIA_CHAIN_ID }],
+        });
+      }
+    } catch (switchError: any) {
+      if (switchError.code === 4902) {
+        await ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+            chainId: SEPOLIA_CHAIN_ID,
+            chainName: 'Sepolia',
+            nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+            rpcUrls: ['https://eth-sepolia.g.alchemy.com/v2/demo'],
+            blockExplorerUrls: ['https://sepolia.etherscan.io'],
+          }],
+        });
+      }
+    }
+  };
+
+  const initializeFhevm = async (): Promise<FhevmInstance> => {
+    if (!sdkInitialized.current) {
+      await initSDK();
+      sdkInitialized.current = true;
+    }
+    
+    return await createInstance({
+      ...SepoliaConfig,
+      network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
+      relayerUrl: 'https://relayer.testnet.zama.org',
+    });
+  };
+
   const reconnectWallet = async () => {
     try {
       if (!window.ethereum) return;
+      
+      await ensureSepoliaNetwork(window.ethereum);
       
       const provider = new BrowserProvider(window.ethereum);
       const accounts = await provider.listAccounts();
@@ -64,13 +107,7 @@ export default function Home() {
         setAccount(userAddress);
         setSigner(signerInstance);
         
-        await initSDK();
-        
-        const fhevmInstance = await createInstance({
-          ...SepoliaConfig,
-          network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-          relayerUrl: 'https://relayer.testnet.zama.org',
-        });
+        const fhevmInstance = await initializeFhevm();
         setInstance(fhevmInstance);
         setConnectionStatus('success');
         localStorage.setItem('walletAccount', userAddress);
@@ -108,6 +145,7 @@ export default function Home() {
     
     try {
       await ethereum.request({ method: 'eth_requestAccounts' });
+      await ensureSepoliaNetwork(ethereum);
       
       const browserProvider = new BrowserProvider(ethereum);
       const signerInstance = await browserProvider.getSigner();
@@ -115,13 +153,7 @@ export default function Home() {
       setAccount(userAddress);
       setSigner(signerInstance);
       
-      await initSDK();
-      
-      const fhevmInstance = await createInstance({
-        ...SepoliaConfig,
-        network: 'https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih',
-        relayerUrl: 'https://relayer.testnet.zama.org',
-      });
+      const fhevmInstance = await initializeFhevm();
       setInstance(fhevmInstance);
       setConnectionStatus('success');
       localStorage.setItem('walletAccount', userAddress);
@@ -139,6 +171,7 @@ export default function Home() {
     setInstance(null);
     setSigner(null);
     setConnectionStatus('idle');
+    sdkInitialized.current = false;
     localStorage.removeItem('walletAccount');
   };
 

@@ -7,9 +7,11 @@ require("hardhat-deploy");
 require("hardhat-gas-reporter");
 require("solidity-coverage");
 
+require("dotenv").config();
+
 const MNEMONIC = process.env.MNEMONIC || "play cement much paper mandate rubber marble ketchup over wonder critic survey";
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
-const INFURA_API_KEY = process.env.INFURA_API_KEY || "";
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/demo";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 
 /** @type {import('hardhat/config').HardhatUserConfig} */
@@ -38,7 +40,7 @@ const config = {
     sepolia: {
       accounts: PRIVATE_KEY ? [PRIVATE_KEY] : { mnemonic: MNEMONIC, path: "m/44'/60'/0'/0/", count: 10 },
       chainId: 11155111,
-      url: "https://eth-sepolia.g.alchemy.com/v2/PdDY0FCflhQnCiLhEwxih",
+      url: SEPOLIA_RPC_URL,
     },
   },
   paths: {
