@@ -28,23 +28,14 @@ export default function Home() {
     accountRef.current = account;
   }, [account]);
 
-  // Restore page state and wallet connection on mount (runs once)
+  // Listen for account changes (runs once)
   useEffect(() => {
-    const savedPage = localStorage.getItem('currentPage') as 'home' | 'game' | null;
-    if (savedPage) {
-      setCurrentPage(savedPage);
-    }
-
-    const savedAccount = localStorage.getItem('walletAccount');
-    if (savedAccount && typeof window.ethereum !== 'undefined') {
-      reconnectWallet();
-    }
-
     if (typeof window.ethereum !== 'undefined') {
       const handleAccountsChanged = (accounts: string[]) => {
         if (accounts.length === 0) {
           disconnectWallet();
         } else if (accountRef.current && accounts[0] !== accountRef.current) {
+          // Account switched while connected - reconnect
           reconnectWallet();
         }
       };
@@ -119,10 +110,8 @@ export default function Home() {
       const fhevmInstance = await initializeFhevm();
       setInstance(fhevmInstance);
       setConnectionStatus('success');
-      localStorage.setItem('walletAccount', userAddress);
     } catch {
       setConnectionStatus('error');
-      localStorage.removeItem('walletAccount');
     } finally {
       isConnecting.current = false;
     }
@@ -167,7 +156,6 @@ export default function Home() {
       const fhevmInstance = await initializeFhevm();
       setInstance(fhevmInstance);
       setConnectionStatus('success');
-      localStorage.setItem('walletAccount', userAddress);
     } catch (e: unknown) {
       const err = e as { code?: number; message?: string };
       if (err.code === 4001 || err.message?.includes('User rejected')) {
@@ -183,17 +171,14 @@ export default function Home() {
     setSigner(null);
     setConnectionStatus('idle');
     sdkInitialized.current = false;
-    localStorage.removeItem('walletAccount');
   };
 
   const goToGame = () => {
     setCurrentPage('game');
-    localStorage.setItem('currentPage', 'game');
   };
 
   const goToHome = () => {
     setCurrentPage('home');
-    localStorage.setItem('currentPage', 'home');
   };
 
   return (
