@@ -32,3 +32,8 @@ out
 # Wallet information (private)
 WALLET_INFO.txt
 note.txt
+
+# Hardhat generated files
+packages/hardhat/artifacts/
+packages/hardhat/cache/
+packages/hardhat/types/
