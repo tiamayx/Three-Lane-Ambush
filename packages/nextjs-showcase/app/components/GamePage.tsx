@@ -306,8 +306,10 @@ export default function GamePage({
         durationDays
       );
 
+      const resultKey = encryptedResultHex as `0x${string}`;
+      const fallbackKey = hexlify(encryptedResultBytes) as `0x${string}`;
       const decryptedResult = Number(
-        decryptedResults[encryptedResultHex] ?? decryptedResults[hexlify(encryptedResultBytes)]
+        decryptedResults[resultKey] ?? decryptedResults[fallbackKey]
       );
       
       let outcome: 'Win' | 'Draw' | 'Loss';
