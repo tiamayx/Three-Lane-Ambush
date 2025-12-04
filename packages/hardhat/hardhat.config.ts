@@ -21,9 +21,7 @@ const config = {
     deployer: 0,
   },
   etherscan: {
-    apiKey: {
-      sepolia: ETHERSCAN_API_KEY,
-    },
+    apiKey: ETHERSCAN_API_KEY,
   },
   sourcify: {
     enabled: true,

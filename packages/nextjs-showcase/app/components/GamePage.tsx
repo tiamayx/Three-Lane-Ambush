@@ -82,7 +82,7 @@ const contractAbi = [
 ];
 // --- END: Inlined ABI ---
 
-const CONTRACT_ADDRESS = "0x321f16929F9232265F77491487C13EC53D8466b1";
+const CONTRACT_ADDRESS = "0x0D3b2C7B6B1a06ABbCd657E2B46C92D5634437e4";
 
 const Button = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
   ({ className, ...props }, ref) => {
