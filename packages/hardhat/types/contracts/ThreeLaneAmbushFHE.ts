@@ -24,11 +24,15 @@ import type {
 
 export interface ThreeLaneAmbushFHEInterface extends Interface {
   getFunction(
-    nameOrSignature: "getEncryptedResult" | "play" | "protocolId"
+    nameOrSignature: "confidentialProtocolId" | "getEncryptedResult" | "play"
   ): FunctionFragment;
 
   getEvent(nameOrSignatureOrTopic: "GameResultReady"): EventFragment;
 
+  encodeFunctionData(
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "getEncryptedResult",
     values: [AddressLike]
@@ -37,17 +41,16 @@ export interface ThreeLaneAmbushFHEInterface extends Interface {
     functionFragment: "play",
     values: [BytesLike, BytesLike, BytesLike, BytesLike]
   ): string;
-  encodeFunctionData(
-    functionFragment: "protocolId",
-    values?: undefined
-  ): string;
 
+  decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "getEncryptedResult",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "play", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "protocolId", data: BytesLike): Result;
 }
 
 export namespace GameResultReadyEvent {
@@ -105,6 +108,8 @@ export interface ThreeLaneAmbushFHE extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
+
   getEncryptedResult: TypedContractMethod<
     [player: AddressLike],
     [string],
@@ -122,12 +127,13 @@ export interface ThreeLaneAmbushFHE extends BaseContract {
     "nonpayable"
   >;
 
-  protocolId: TypedContractMethod<[], [bigint], "view">;
-
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
 
+  getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "getEncryptedResult"
   ): TypedContractMethod<[player: AddressLike], [string], "view">;
@@ -143,9 +149,6 @@ export interface ThreeLaneAmbushFHE extends BaseContract {
     [void],
     "nonpayable"
   >;
-  getFunction(
-    nameOrSignature: "protocolId"
-  ): TypedContractMethod<[], [bigint], "view">;
 
   getEvent(
     key: "GameResultReady"

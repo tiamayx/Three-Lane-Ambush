@@ -235,12 +235,12 @@ export default function HomePage({ account, connectionStatus, connectWallet, dis
           <p>
             Verified Contract on Sepolia:{" "}
             <a
-            href="https://sepolia.etherscan.io/address/0x0D3b2C7B6B1a06ABbCd657E2B46C92D5634437e4"
+            href="https://sepolia.etherscan.io/address/0xA47185cD43a0b17906D97d9871317079D2d76Df9"
             target="_blank"
             rel="noopener noreferrer"
             className="underline transition-colors hover:text-yellow-600"
           >
-            0x0D3b2C7B6B1a06ABbCd657E2B46C92D5634437e4
+            0xA47185cD43a0b17906D97d9871317079D2d76Df9
             </a>
           </p>
         </div>

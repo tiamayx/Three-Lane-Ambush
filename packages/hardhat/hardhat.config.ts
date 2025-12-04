@@ -1,4 +1,4 @@
-// require("@fhevm/hardhat-plugin");
+require("@fhevm/hardhat-plugin");
 require("@nomicfoundation/hardhat-chai-matchers");
 require("@nomicfoundation/hardhat-ethers");
 require("@nomicfoundation/hardhat-verify");
@@ -10,9 +10,9 @@ require("solidity-coverage");
 require("dotenv").config();
 
 const MNEMONIC = process.env.MNEMONIC || "play cement much paper mandate rubber marble ketchup over wonder critic survey";
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
-const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/demo";
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "c56c4880eda40650a7010c9417f3bc925b1def3971873d9051589b055c0765d6";
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/EgOfGE7maSqIyf18BLwN7";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "N3ZQXT5EPMUZIDEF15MW3B2CJVF2KCZN6F";
 
 /** @type {import('hardhat/config').HardhatUserConfig} */
 const config = {
@@ -53,7 +53,6 @@ const config = {
       metadata: { bytecodeHash: "none" },
       optimizer: { enabled: true, runs: 800 },
       evmVersion: "cancun",
-      remappings: ["@fhevm/solidity/=./node_modules/@fhevm/solidity/"],
     },
   },
   typechain: {

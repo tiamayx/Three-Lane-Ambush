@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "./lib/lib/FHE.sol";
-import "./lib/config/ZamaConfig.sol";
+import "@fhevm/solidity/lib/FHE.sol";
+import "@fhevm/solidity/config/ZamaConfig.sol";
 
 /**
  * @title ThreeLaneAmbushFHE
@@ -11,7 +11,7 @@ import "./lib/config/ZamaConfig.sol";
  *      and determines the winner using encrypted computation. Only the final result 
  *      (Win/Draw/Loss) is revealed to the player.
  */
-contract ThreeLaneAmbushFHE is SepoliaConfig {
+contract ThreeLaneAmbushFHE is ZamaEthereumConfig {
     // Mapping from address to the encrypted outcome (0 = Loss, 1 = Draw, 2 = Win)
     mapping(address => euint8) private encryptedResults;
 
