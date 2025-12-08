@@ -83,6 +83,43 @@ The entire gameplay loop of `Three Lane Ambush` is designed around Zama's FHEVM,
 [ Display Outcome ]                                       [      -      ]
 ```
 
+## Testing
+
+The project includes comprehensive unit tests for the FHE smart contract using Hardhat and the FHEVM plugin.
+
+### Test Coverage
+
+| Test Category | Description |
+|---------------|-------------|
+| **Deployment** | Contract deploys successfully, initial state is correct |
+| **Play Function** | Accepts encrypted inputs, produces valid outcomes (0/1/2), emits events |
+| **Multiple Games** | Same player can replay, multiple players supported simultaneously |
+| **Access Control** | Only authorized player can decrypt their own result |
+| **Edge Cases** | Handles min/max lane and power values |
+
+### Running Tests
+
+```bash
+cd packages/hardhat
+npx hardhat test --network hardhat
+```
+
+### Test File Structure
+
+```
+packages/hardhat/test/
+└── ThreeLaneAmbushFHE.test.ts    # Main test suite
+```
+
+The tests use mock FHE encryption for fast local testing. Key test scenarios:
+
+- ✅ Encrypted lane and power inputs are accepted
+- ✅ Game outcome is always valid (0=Loss, 1=Draw, 2=Win)
+- ✅ `GameResultReady` event is emitted
+- ✅ Players can play multiple rounds
+- ✅ Multiple players can play concurrently
+- ✅ ACL ensures only the player can decrypt their result
+
 ## Quick Start & Deployment
 
 ### Run Locally

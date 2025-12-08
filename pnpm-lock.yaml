@@ -31,11 +31,11 @@ importers:
   packages/fhevm-sdk:
     dependencies:
       '@fhevm/mock-utils':
-        specifier: ^0.1.0
-        version: 0.1.0(@zama-fhe/relayer-sdk@0.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.8.3)
+        specifier: ^0.3.0-2
+        version: 0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.8.3)
       '@zama-fhe/relayer-sdk':
-        specifier: ^0.2.0
-        version: 0.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^0.3.0-6
+        version: 0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       ethers:
         specifier: ^6.13.4
         version: 6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -93,8 +93,8 @@ importers:
         version: 3.3.1
     devDependencies:
       '@fhevm/hardhat-plugin':
-        specifier: 0.3.0-1
-        version: 0.3.0-1(@fhevm/mock-utils@0.1.0(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2))(@fhevm/solidity@0.9.1)(@nomicfoundation/hardhat-ethers@3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10)))(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(encrypted-types@0.0.4)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))
+        specifier: 0.3.0-2
+        version: 0.3.0-2(@fhevm/mock-utils@0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2))(@fhevm/solidity@0.9.1)(@nomicfoundation/hardhat-ethers@3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10)))(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(encrypted-types@0.0.4)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))
       '@nomicfoundation/hardhat-chai-matchers':
         specifier: ^2.1.0
         version: 2.1.0(@nomicfoundation/hardhat-ethers@3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10)))(chai@4.5.0)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))
@@ -129,8 +129,8 @@ importers:
         specifier: ^8.37.0
         version: 8.44.0(eslint@8.57.1)(typescript@5.9.2)
       '@zama-fhe/relayer-sdk':
-        specifier: 0.3.0-5
-        version: 0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: 0.3.0-6
+        version: 0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       chai:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1685,14 +1685,14 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@fhevm/hardhat-plugin@0.3.0-1':
-    resolution: {integrity: sha512-SnxtynkDehpkvoq0CRi1x09J01/K1rP2Q99fMNUv6PxXowwvjhZYhq0vw8qi6mZLI62AVMh94KbzN/Gb3L4e/w==}
+  '@fhevm/hardhat-plugin@0.3.0-2':
+    resolution: {integrity: sha512-gVY8MoEhGz88tbcgJeIJGFBwCTxwm324yt42ipFnV5AP0ksPKM0977UcLDNfRr0oAiOSGceEEawaXqJl/46zCQ==}
     engines: {node: '>=20', npm: '>=7.0.0'}
     peerDependencies:
-      '@fhevm/mock-utils': 0.3.0-1
+      '@fhevm/mock-utils': 0.3.0-2
       '@fhevm/solidity': ^0.9.1
       '@nomicfoundation/hardhat-ethers': ^3.0.8
-      '@zama-fhe/relayer-sdk': ^0.3.0-5
+      '@zama-fhe/relayer-sdk': ^0.3.0-6
       encrypted-types: ^0.0.4
       ethers: ^6.1.0
       hardhat: ^2.0.0
@@ -1700,10 +1700,10 @@ packages:
   '@fhevm/host-contracts@0.9.0':
     resolution: {integrity: sha512-N/DRfpXVCzHbg+9NE5sLHzTH3X7Wt3xRSN/7Jyoo+mKgjI7u40heJz8z/dUqvcq0h8wXjXcZcQHgP4pjMNjLKw==}
 
-  '@fhevm/mock-utils@0.1.0':
-    resolution: {integrity: sha512-MZk+hXNrO4t0kIgoO9nLln9lKCefCe6gCAKeBhwAMmndIdYGIGkNJHVTbqAAMWS7wPTsA5pkR47BWvX0N6XaZQ==}
+  '@fhevm/mock-utils@0.3.0-2':
+    resolution: {integrity: sha512-9gdhcSa/Qn/YzYjhIVLa4cBX3XhRzivYuK8qfwFZh3zxABeXN4Teaf0JEYDyhlxdNi4N/8RgXcnxsHTTFIHqzQ==}
     peerDependencies:
-      '@zama-fhe/relayer-sdk': ^0.2.0
+      '@zama-fhe/relayer-sdk': ^0.3.0-6
       ethers: ^6.1.0
       typescript: '>=5.0.4'
     peerDependenciesMeta:
@@ -3269,6 +3269,11 @@ packages:
 
   '@zama-fhe/relayer-sdk@0.3.0-5':
     resolution: {integrity: sha512-DIPlN9z5tfSCXqUlhQN2MEv57HmAUHSGV9LPtGs6LWmM7POj6WsMd1hU7Qci4AWPsor7k3IqMfqGGthIvot/DQ==}
+    engines: {node: '>=22'}
+    hasBin: true
+
+  '@zama-fhe/relayer-sdk@0.3.0-6':
+    resolution: {integrity: sha512-lrnor1yIsC2ePHWo5XCxSsFkBr8JuaI7FvRk1azpglxkBVNECvuMD23ky04A8F6k53NDBvlh71MvHI+qvAOaQQ==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -10922,13 +10927,13 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@fhevm/hardhat-plugin@0.3.0-1(@fhevm/mock-utils@0.1.0(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2))(@fhevm/solidity@0.9.1)(@nomicfoundation/hardhat-ethers@3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10)))(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(encrypted-types@0.0.4)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))':
+  '@fhevm/hardhat-plugin@0.3.0-2(@fhevm/mock-utils@0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2))(@fhevm/solidity@0.9.1)(@nomicfoundation/hardhat-ethers@3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10)))(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(encrypted-types@0.0.4)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))':
     dependencies:
       '@fhevm/host-contracts': 0.9.0
-      '@fhevm/mock-utils': 0.1.0(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2)
+      '@fhevm/mock-utils': 0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2)
       '@fhevm/solidity': 0.9.1
       '@nomicfoundation/hardhat-ethers': 3.1.0(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.26.3(bufferutil@4.0.9)(ts-node@10.9.2(@types/node@20.19.17)(typescript@5.9.2))(typescript@5.9.2)(utf-8-validate@5.0.10))
-      '@zama-fhe/relayer-sdk': 0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@zama-fhe/relayer-sdk': 0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       debug: 4.4.3(supports-color@8.1.1)
       dotenv: 16.6.1
       encrypted-types: 0.0.4
@@ -10946,16 +10951,16 @@ snapshots:
       solidity-comments-darwin-arm64: 0.1.1
       solidity-comments-linux-x64-gnu: 0.1.1
 
-  '@fhevm/mock-utils@0.1.0(@zama-fhe/relayer-sdk@0.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.8.3)':
+  '@fhevm/mock-utils@0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.8.3)':
     dependencies:
-      '@zama-fhe/relayer-sdk': 0.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@zama-fhe/relayer-sdk': 0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       ethers: 6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optionalDependencies:
       typescript: 5.8.3
 
-  '@fhevm/mock-utils@0.1.0(@zama-fhe/relayer-sdk@0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2)':
+  '@fhevm/mock-utils@0.3.0-2(@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10))(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(typescript@5.9.2)':
     dependencies:
-      '@zama-fhe/relayer-sdk': 0.3.0-5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@zama-fhe/relayer-sdk': 0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       ethers: 6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optionalDependencies:
       typescript: 5.9.2
@@ -12733,6 +12738,21 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  '@zama-fhe/relayer-sdk@0.3.0-6(bufferutil@4.0.9)(utf-8-validate@5.0.10)':
+    dependencies:
+      commander: 14.0.1
+      ethers: 6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      fetch-retry: 6.0.0
+      keccak: 3.0.4
+      node-tfhe: 1.4.0-alpha.3
+      node-tkms: 0.12.5
+      tfhe: 1.4.0-alpha.3
+      tkms: 0.12.5
+      wasm-feature-detect: 1.8.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   abab@2.0.6: {}
 
   abbrev@1.0.9: {}
@@ -14385,7 +14405,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.2.0(eslint@8.57.1)
@@ -14446,7 +14466,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -14508,7 +14528,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.44.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
